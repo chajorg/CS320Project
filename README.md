@@ -1,10 +1,7 @@
 # CS320Project
 Expense Tracker program
 
-Team Members:
-Vitaliy Kudrik
-Chayse Jorgenson
-Kevin Tong
+Team Members: Vitaliy Kudrik, Chayse Jorgenson, Kevin Tong
 
 The Expense Tracker is a web application designed to help people keep track of their spending. It will allow for them
 to input expenses and savings goals, which the application will then use to calculate averages and totals, as well as 
