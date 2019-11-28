@@ -1,4 +1,3 @@
-
 //Linked list to hold expenses
 class LinkedList{
 
@@ -6,17 +5,16 @@ class LinkedList{
     this.root = null;
   }
 
-
   //Function to add new expenses to the list
   addToList(Expense){
 
-    if(root == null){
-      root = Expense;
+    if(this.root == null){
+      this.root = Expense;
     }
 
 
     else{
-      let temp = root;
+      let temp = this.root;
 
       while(temp.nextExpense != null){
         temp = temp.next;
@@ -24,5 +22,16 @@ class LinkedList{
       temp.next = Expense;
     }
 
+  }
+}
+
+//Class to hold store expenses
+class Expense{
+
+  constructor(num, categ, date) {
+    this.amount = num;
+    this.category = categ;
+    this.expenseDate = date;
+    this.nextExpense = null;
   }
 }
