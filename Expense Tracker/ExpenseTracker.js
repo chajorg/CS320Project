@@ -48,3 +48,21 @@ function totalExpense(ll){
 
   return(sum);
 }
+
+
+//total for a given category
+function totalExpenseByCateg(ll, category) {
+
+  let temp = ll.root;
+  let sum = 0;
+
+  while (temp != null) {
+    if(temp.category == category){
+      sum = sum + temp.amount;
+      temp = temp.nextExpense;
+    }
+  }
+  return (sum);
+}
+
+
