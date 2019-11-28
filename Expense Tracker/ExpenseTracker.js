@@ -35,3 +35,16 @@ class Expense{
     this.nextExpense = null;
   }
 }
+
+//Calculation Area//
+function totalExpense(ll){
+  let temp = ll.root;
+  let sum = 0;
+
+  while(temp != null){
+    sum = sum + temp.amount;
+    temp = temp.nextExpense;
+  }
+
+  return(sum);
+}
