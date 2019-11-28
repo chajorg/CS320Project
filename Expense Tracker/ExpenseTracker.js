@@ -65,4 +65,20 @@ function totalExpenseByCateg(ll, category) {
   return (sum);
 }
 
+//averages the weekly total expenses
+function avgWeeklyExpense(ll){
+
+}
+
+//gives the average expense from a given category
+function avgCategExpense(ll,categ){
+
+}
+
+
+
+
+
+
+
 
