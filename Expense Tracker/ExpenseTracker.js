@@ -48,3 +48,14 @@ function totalExpense(ll){
 
   return(sum);
 }
+
+let data = ['1','2','3'];
+let options = {'test', 'testrfg', 'fgdfg'};
+
+let Chart = require('chart.js');
+let ctx = 'myChart';
+let myBarChart = new Chart(ctx, {
+  type: 'bar',
+  data: data,
+  options: options
+});
