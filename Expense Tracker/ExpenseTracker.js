@@ -84,22 +84,25 @@ function totalExpense(ll) {
   let sum = 0;
 
   while(temp != null){
-    sum = sum + temp.amount;
+    sum = sum.valueOf() + parseFloat(temp.amount);
     temp = temp.nextExpense;
   }
 
   return(sum);
 }
-/*
-let myList = new LinkedList();
-myList.readFile();
-myList.addToList(new Expense(44, 'Bills'));
-myList.writeToFile();
-*/
 
+function totalByCateg(ll,categ){
+  let temp = ll.root;
+  let sum = 0;
 
-//console.log(myList);
+  while(temp != null){
 
-//initialization
+    if(temp.category == categ){
+      sum = sum.valueOf() + parseFloat(temp.amount);
+    }
 
+    temp = temp.nextExpense;
+  }
 
+  return(sum);
+}

@@ -13,13 +13,14 @@
 
     <script>
       let myList = new LinkedList();
+      let grandTotal = 0;
       let billsTotal = 0;
       let grocTotal = 0;
       let entertainmentTotal = 0;
       let gasTotal = 0;
       let gamingTotal = 0;
       let luxuryTotal = 0;
-      let miscTotal = 0;
+      let mscTotal = 0;
       let essentTotal = 0;
       localStorage.setItem("firstname", "Smith");
     </script>
@@ -37,7 +38,41 @@
 
         <h3>
           <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
-          <a href="thirdpage.html" class="button-bg2">CLICK HERE TO VIEW DATA</a>
+          <a href="thirdpage.html" class="button-bg2" onclick="compileData();">CLICK HERE TO VIEW DATA
+          <script>
+            function compileData(){
+              //calc totals
+
+              grandTotal = totalExpense(myList);
+              localStorage.setItem("grandTot", grandTotal.toString());
+
+              billsTotal = totalByCateg(myList,"Bills");
+              localStorage.setItem("billsTot",billsTotal.toString());
+
+              grocTotal = totalByCateg(myList,"Groceries");
+              localStorage.setItem("grocTot",grocTotal.toString());
+
+              entertainmentTotal = totalByCateg(myList,"Entertainment");
+              localStorage.setItem("enterTot",entertainmentTotal.toString());
+
+              gasTotal = totalByCateg(myList,"Gas");
+              localStorage.setItem("gasTot",gasTotal.toString());
+
+              gamingTotal = totalByCateg(myList,"Gaming");
+              localStorage.setItem("gamingTot",gamingTotal.toString());
+
+              luxuryTotal = totalByCateg(myList,"Luxury");
+              localStorage.setItem("luxTot",luxuryTotal.toString());
+
+              mscTotal = totalByCateg(myList,"Msc");
+              localStorage.setItem("mscTot",mscTotal.toString());
+
+              essentTotal = totalByCateg(myList,"Essentials");
+              localStorage.setItem("essentTot",essentTotal.toString());
+            }
+          </script>
+
+          </a>
         </h3>
 
       </div>
