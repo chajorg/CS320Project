@@ -100,7 +100,6 @@ function totalByCateg(ll,categ){
     if(temp.category == categ){
       sum = sum.valueOf() + parseFloat(temp.amount);
     }
-
     temp = temp.nextExpense;
   }
 

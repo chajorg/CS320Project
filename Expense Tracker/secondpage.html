@@ -8,6 +8,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script src="ExpenseTracker.js"></script>
+    <script src="../../dist/Chart.min.js"></script>
+    <script src="../utils.js"></script>
 
     <link rel="stylesheet" href="style.css">
 
@@ -94,7 +96,6 @@
           <button class="ui button" onclick="addGroc();" >Submit
             <script>
               function addGroc(){
-                alert("adding");
                 myList.addToList(new Expense(document.getElementById("grocInput").value,"Groceries"));
               }
             </script>
@@ -107,7 +108,6 @@
           <button class="ui button" onclick="addEnter();">Submit
             <script>
               function addEnter(){
-                alert("adding");
                 myList.addToList(new Expense(document.getElementById("entertainmentInput").value,"Entertainment"));
               }
             </script>
@@ -170,7 +170,7 @@
           <input type="number" id= "mscInput" placeholder="Input Miscellaneous">
           <button class="ui button" onclick="addMsc();" >Submit
             <script>
-              function addLux(){
+              function addMsc(){
                 myList.addToList(new Expense(document.getElementById("mscInput").value,"Msc"));
               }
             </script>
