@@ -23,7 +23,7 @@ class LinkedList{
   }
 
 
-  readFile(){
+ /* readFile(){
     const fs = require('fs');
 
     let data = fs.readFileSync('Storage');
@@ -43,7 +43,8 @@ class LinkedList{
       this.addToList(tempExpense);
     }
   }
-
+  */
+/*
   writeToFile(){
 
     const fs = require('fs');
@@ -64,7 +65,9 @@ class LinkedList{
       temp = temp.nextExpense;
     }
   }
+ */
 }
+
 
 //Class to hold store expenses
 class Expense {
@@ -87,8 +90,8 @@ function totalExpense(ll) {
 
   return(sum);
 }
-
-/*let myList = new LinkedList();
+/*
+let myList = new LinkedList();
 myList.readFile();
 myList.addToList(new Expense(44, 'Bills'));
 myList.writeToFile();

@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script src= "Expense Tracker/ExpenseTracker.js"> </script>
+    <script src="ExpenseTracker.js"></script>
 
     <link rel="stylesheet" href="style.css">
 
     <script>
       let myList = new LinkedList();
-      myList.readFile();
-      myList.addToList(new Expense('75', 'Bills'));
-      myList.writeToFile();
+      let billsTotal = 0;
+      let grocTotal = 0;
+      let entertainmentTotal = 0;
+      let gasTotal = 0;
+      let gamingTotal = 0;
+      let luxuryTotal = 0;
+      let miscTotal = 0;
+      let essentTotal = 0;
+      localStorage.setItem("firstname", "Smith");
     </script>
   </head>
 
@@ -49,24 +55,12 @@
     <div class="ui grid">
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Groceries">
-          <button class="ui button">Submit</button>
-        </div>
-      </div>
-      <div class="four wide column">
-        <div class="ui action input">
-          <input type="text" placeholder="Input Entertainment">
-          <button class="ui button">Submit</button>
-        </div>
-      </div>
-      <div class="four wide column">
-        <div class="ui action input">
-          <input type="text" id= "billsInput" placeholder="Input Bills">
-          <button class="ui button" action = "addBills();">Submit
+          <input type="number" id= "grocInput" placeholder="Input Groceries">
+          <button class="ui button" onclick="addGroc();" >Submit
             <script>
-              function addBills(){
-                myList.addToList(new Expense(document.getElementById("billsInput").value,"Bills"));
-                myList.writeToFile();
+              function addGroc(){
+                alert("adding");
+                myList.addToList(new Expense(document.getElementById("grocInput").value,"Groceries"));
               }
             </script>
           </button>
@@ -74,8 +68,39 @@
       </div>
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Gas">
-          <button class="ui button">Submit</button>
+          <input type="number" id= "entertainmentInput" placeholder="Input Entertainment">
+          <button class="ui button" onclick="addEnter();">Submit
+            <script>
+              function addEnter(){
+                alert("adding");
+                myList.addToList(new Expense(document.getElementById("entertainmentInput").value,"Entertainment"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "billsInput" placeholder="Input Bills">
+          <button class="ui button" onclick="addBills();">Submit
+            <script>
+              function addBills(){
+                myList.addToList(new Expense(document.getElementById("billsInput").value,"Bills"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "gasInput" placeholder="Input Gas">
+          <button class="ui button" onclick="addGas();" >Submit
+            <script>
+              function addGas(){
+                myList.addToList(new Expense(document.getElementById("gasInput").value,"Gas"));
+              }
+            </script>
+          </button>
         </div>
       </div>
     </div>
@@ -83,26 +108,50 @@
     <div class="ui grid">
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Gaming">
-          <button class="ui button">Submit</button>
+          <input type="number" id= "gamingInput" placeholder="Input Gaming">
+          <button class="ui button" onclick="addGaming();" >Submit
+            <script>
+              function addGaming(){
+                myList.addToList(new Expense(document.getElementById("gamingInput").value,"Gaming"));
+              }
+            </script>
+          </button>
         </div>
       </div>
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Luxury">
-          <button class="ui button">Submit</button>
+          <input type="number" id= "luxInput" placeholder="Input Luxury">
+          <button class="ui button" onclick="addLux();" >Submit
+            <script>
+              function addLux(){
+                myList.addToList(new Expense(document.getElementById("luxInput").value,"Luxury"));
+              }
+            </script>
+          </button>
         </div>
       </div>
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Miscellaneous">
-          <button class="ui button">Submit</button>
+          <input type="number" id= "mscInput" placeholder="Input Miscellaneous">
+          <button class="ui button" onclick="addMsc();" >Submit
+            <script>
+              function addLux(){
+                myList.addToList(new Expense(document.getElementById("mscInput").value,"Msc"));
+              }
+            </script>
+          </button>
         </div>
       </div>
       <div class="four wide column">
         <div class="ui action input">
-          <input type="text" placeholder="Input Essentials">
-          <button class="ui button">Submit</button>
+          <input type="number" id= "essentInput" placeholder="Input Essentials">
+          <button class="ui button" onclick="addEssent();" >Submit
+            <script>
+              function addEssent(){
+                myList.addToList(new Expense(document.getElementById("essentInput").value,"Essentials"));
+              }
+            </script>
+          </button>
         </div>
       </div>
     </div>
