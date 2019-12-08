@@ -7,26 +7,105 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src= "Expense Tracker/ExpenseTracker.js"> </script>
+
     <link rel="stylesheet" href="style.css">
+
+    <script>
+      let myList = new LinkedList();
+      myList.readFile();
+      myList.addToList(new Expense('75', 'Bills'));
+      myList.writeToFile();
+    </script>
   </head>
 
   <body>
-  
+
     <div>
       <h1>Expense Tracker</h1>
     </div>
-	
-	<div class="ui borderless middlemenu menu">
+
+    <div class="ui borderless middlemenu menu">
 
       <div class="ui centered grid container">
 
         <h3>
-		    <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
-			<a href="thirdpage.html" class="button-bg2">CLICK HERE TO VIEW DATA</a>
-		</h3>
+          <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
+          <a href="thirdpage.html" class="button-bg2">CLICK HERE TO VIEW DATA</a>
+        </h3>
 
+      </div>
     </div>
 
+    <div class="seperator">
+      <div class="ui message">
+        <div class="header">
+          EXPENSE INPUT FORM
+        </div>
+        <p> Please input your expenses below using whichever form is necessary</p>
+      </div>
+      <hr>
+    </div>
+    <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Groceries">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Entertainment">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" id= "billsInput" placeholder="Input Bills">
+          <button class="ui button" action = "addBills();">Submit
+            <script>
+              function addBills(){
+                myList.addToList(new Expense(document.getElementById("billsInput").value,"Bills"));
+                myList.writeToFile();
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Gas">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Gaming">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Luxury">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Miscellaneous">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="text" placeholder="Input Essentials">
+          <button class="ui button">Submit</button>
+        </div>
+      </div>
+    </div>
 
   </body>
 
