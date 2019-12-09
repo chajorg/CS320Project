@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="style.css">
   </head>
 
@@ -75,6 +76,46 @@
         document.write(localStorage.getItem("essentTot"));
       </script>
     </a>
+    <canvas id="countries" width="600" height="400"></canvas>
+    <script>
+      var pieData = [
+        {
+          value: parseFloat(localStorage.getItem("billsTot")),
+          color:"#878BB6"
+        },
+        {
+          value : parseFloat(localStorage.getItem("gasTot")),
+          color : "#4ACAB4"
+        },
+        {
+          value : parseFloat(localStorage.getItem("enterTot")),
+          color : "#ff0b0c"
+        },
+        {
+          value : parseFloat(localStorage.getItem("luxTot")),
+          color : "#FFEA88"
+        },
+        {
+          value : parseFloat(localStorage.getItem("mscTot")),
+          color : "#2d38ff"
+        },
+        {
+          value : parseFloat(localStorage.getItem("grocTot")),
+          color : "#ff39e5"
+        },
+        {
+          value : parseFloat(localStorage.getItem("gamingTot")),
+          color : "#09ff19"
+        },
+        {
+          value : parseFloat(localStorage.getItem("essentTot")),
+          color : "#ff9013"
+        }
+      ];
+      // Get the context of the canvas element we want to select
+      var countries= document.getElementById("countries").getContext("2d");
+      new Chart(countries).Pie(pieData);
+    </script>
   </div>
 
   </body>
