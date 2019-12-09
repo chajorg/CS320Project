@@ -8,8 +8,14 @@
 .text {
   margin: 2px;
   font-weight: bold;
+  color: red;
 }
 
+.seperator{
+
+  padding-top: 50px;
+
+}
 
 .text-title {
   font-weight: bold;
@@ -59,7 +65,7 @@
 h1 {
   text-align: center;
   font-size: 6em;
-  
+
   background-image: linear-gradient(to bottom, #b30c0c, #edc73b 100%);
   background-image: radial-gradient(circle, red, white, blue);
   margin-bottom: 10px;
@@ -73,7 +79,7 @@ h1 {
 }
 
 h2 {
- 
+
   font-size: 2.5em;
 
   padding-left: 50px;
@@ -87,7 +93,7 @@ h2 {
 
 
 h3 {
- 
+
   font-size: 2.0em;
   padding-top: 50px;
   padding-left: 50px;
@@ -99,3 +105,41 @@ h3 {
 
 }
 
+a.button {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+
+  text-decoration: none;
+  color: initial;
+}
+
+.header{
+  text-align: center;
+  color:red;
+}
+
+p{
+  font-family: Garamond;
+  font-size: 2.0em;
+  text-align: center;
+  font-weight: bold;
+
+}
+
+.column{
+  background-color: #dadde3;
+}
+
+.input{
+  margin-left: 50px;
+}
+
+::placeholder{
+
+  font-weight: bold;
+  font-size:. 1.75em;
+  font-family: Arial;
+  color: black;
+
+}
