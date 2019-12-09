@@ -7,26 +7,189 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="ExpenseTracker.js"></script>
+    <script src="../../dist/Chart.min.js"></script>
+    <script src="../utils.js"></script>
+
     <link rel="stylesheet" href="style.css">
+
+    <script>
+      let myList = new LinkedList();
+      let grandTotal = 0;
+      let billsTotal = 0;
+      let grocTotal = 0;
+      let entertainmentTotal = 0;
+      let gasTotal = 0;
+      let gamingTotal = 0;
+      let luxuryTotal = 0;
+      let mscTotal = 0;
+      let essentTotal = 0;
+      localStorage.setItem("firstname", "Smith");
+    </script>
   </head>
 
   <body>
-  
+
     <div>
       <h1>Expense Tracker</h1>
     </div>
-	
-	<div class="ui borderless middlemenu menu">
+
+    <div class="ui borderless middlemenu menu">
 
       <div class="ui centered grid container">
 
         <h3>
-		    <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
-			<a href="thirdpage.html" class="button-bg2">CLICK HERE TO VIEW DATA</a>
-		</h3>
+          <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
+          <a href="thirdpage.html" class="button-bg2" onclick="compileData();">CLICK HERE TO VIEW DATA
+          <script>
+            function compileData(){
+              //calc totals
 
+              grandTotal = totalExpense(myList);
+              localStorage.setItem("grandTot", grandTotal.toString());
+
+              billsTotal = totalByCateg(myList,"Bills");
+              localStorage.setItem("billsTot",billsTotal.toString());
+
+              grocTotal = totalByCateg(myList,"Groceries");
+              localStorage.setItem("grocTot",grocTotal.toString());
+
+              entertainmentTotal = totalByCateg(myList,"Entertainment");
+              localStorage.setItem("enterTot",entertainmentTotal.toString());
+
+              gasTotal = totalByCateg(myList,"Gas");
+              localStorage.setItem("gasTot",gasTotal.toString());
+
+              gamingTotal = totalByCateg(myList,"Gaming");
+              localStorage.setItem("gamingTot",gamingTotal.toString());
+
+              luxuryTotal = totalByCateg(myList,"Luxury");
+              localStorage.setItem("luxTot",luxuryTotal.toString());
+
+              mscTotal = totalByCateg(myList,"Msc");
+              localStorage.setItem("mscTot",mscTotal.toString());
+
+              essentTotal = totalByCateg(myList,"Essentials");
+              localStorage.setItem("essentTot",essentTotal.toString());
+            }
+          </script>
+
+          </a>
+        </h3>
+
+      </div>
     </div>
 
+    <div class="seperator">
+      <div class="ui message">
+        <div class="header">
+          EXPENSE INPUT FORM
+        </div>
+        <p> Please input your expenses below using whichever form is necessary</p>
+      </div>
+      <hr>
+    </div>
+    <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "grocInput" placeholder="Input Groceries">
+          <button class="ui button" onclick="addGroc();" >Submit
+            <script>
+              function addGroc(){
+                myList.addToList(new Expense(document.getElementById("grocInput").value,"Groceries"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "entertainmentInput" placeholder="Input Entertainment">
+          <button class="ui button" onclick="addEnter();">Submit
+            <script>
+              function addEnter(){
+                myList.addToList(new Expense(document.getElementById("entertainmentInput").value,"Entertainment"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "billsInput" placeholder="Input Bills">
+          <button class="ui button" onclick="addBills();">Submit
+            <script>
+              function addBills(){
+                myList.addToList(new Expense(document.getElementById("billsInput").value,"Bills"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "gasInput" placeholder="Input Gas">
+          <button class="ui button" onclick="addGas();" >Submit
+            <script>
+              function addGas(){
+                myList.addToList(new Expense(document.getElementById("gasInput").value,"Gas"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui grid">
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "gamingInput" placeholder="Input Gaming">
+          <button class="ui button" onclick="addGaming();" >Submit
+            <script>
+              function addGaming(){
+                myList.addToList(new Expense(document.getElementById("gamingInput").value,"Gaming"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "luxInput" placeholder="Input Luxury">
+          <button class="ui button" onclick="addLux();" >Submit
+            <script>
+              function addLux(){
+                myList.addToList(new Expense(document.getElementById("luxInput").value,"Luxury"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "mscInput" placeholder="Input Miscellaneous">
+          <button class="ui button" onclick="addMsc();" >Submit
+            <script>
+              function addMsc(){
+                myList.addToList(new Expense(document.getElementById("mscInput").value,"Msc"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui action input">
+          <input type="number" id= "essentInput" placeholder="Input Essentials">
+          <button class="ui button" onclick="addEssent();" >Submit
+            <script>
+              function addEssent(){
+                myList.addToList(new Expense(document.getElementById("essentInput").value,"Essentials"));
+              }
+            </script>
+          </button>
+        </div>
+      </div>
+    </div>
 
   </body>
 

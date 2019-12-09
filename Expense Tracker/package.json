@@ -2,6 +2,7 @@
   "name": "Expense Tracker",
   "version": "1.0.0",
   "dependencies": {
-    "line-reader": "latest"
+    "line-reader": "latest",
+    "chart.js": "latest"
   }
 }
