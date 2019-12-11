@@ -2,7 +2,8 @@
   "name": "Expense Tracker",
   "version": "1.0.0",
   "dependencies": {
-    "line-reader": "latest",
-    "chart.js": "latest"
+    "chart.js": "latest",
+    "chartjs-plugin-labels": "^1.1.0",
+    "line-reader": "latest"
   }
 }
