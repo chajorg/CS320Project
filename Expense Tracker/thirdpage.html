@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Cougar Shop</title>
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
@@ -25,66 +25,117 @@
     </div>
 
 
-	<div class="ui borderless middlemenu menu">
+    <div class="ui borderless middlemenu menu">
 
-    <div class="ui centered grid container">
+      <div class="ui centered grid container">
 
-      <h3>
-        <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
-        <a href="secondpage.html" class="button-bg2">CLICK HERE TO INPUT DATA</a>
-      </h3>
+        <h3>
+          <a href="main.html" class="button-bg">CLICK HERE TO GO TO MAIN PAGE</a>
+          <a href="secondpage.html" class="button-bg2">CLICK HERE TO INPUT DATA</a>
+        </h3>
+      </div>
     </div>
-  </div>
 
-  <div>
-    <a>
-      Grand Total:
-      <script>
-        document.write(localStorage.getItem("grandTot"));
-      </script>
-      <br>
-      <br>Bills Total:
-      <script>
-        document.write(localStorage.getItem("billsTot"));
-      </script>
+    <div class="ui segment">
+      <div class="ui two column very relaxed grid">
+        <div class="column">
+		<b>
+          <div class="grand-text-data">Grand Total:
+            <script>
+              document.write(localStorage.getItem("grandTot"));
 
-     <br> Groceries Total:
-      <script>
-        document.write(localStorage.getItem("grocTot"));
-      </script>
+            </script>
+          </div>
 
-     <br> Entertainment Total:
-      <script>
-        document.write(localStorage.getItem("enterTot"));
-      </script>
+          <div class="text-data">Bills Total:
+            <script>
+			
+              document.write(localStorage.getItem("billsTot"));
 
-     <br> Gas Total:
-      <script>
-        document.write(localStorage.getItem("gasTot"));
-      </script>
+            </script>
+          </div>
 
-     <br> Gaming Total:
-      <script>
-        document.write(localStorage.getItem("gamingTot"));
-      </script>
+          <div class="text-data"> Groceries Total:
+            <script>
+              document.write(localStorage.getItem("grocTot"));
 
-      <br> Luxury Total:
-      <script>
-        document.write(localStorage.getItem("luxTot"));
-      </script>
+            </script>
+          </div>
 
-     <br> Msc Total:
-      <script>
-        document.write(localStorage.getItem("mscTot"));
-      </script>
+          <div class="text-data"> Entertainment Total:
+            <script>
+              document.write(localStorage.getItem("enterTot"));
 
-      <br> Essentials Total:
-      <script>
-        document.write(localStorage.getItem("essentTot"));
-      </script>
-      <br>
+            </script>
+          </div>
 
-    </a>
+          <div class="text-data"> Gas Total:
+            <script>
+              document.write(localStorage.getItem("gasTot"));
+
+            </script>
+          </div>
+
+          <div class="text-data"> Gaming Total:
+            <script>
+              document.write(localStorage.getItem("gamingTot"));
+
+            </script>
+          </div>
+
+          <div class="text-data"> Luxury Total:
+            <script>
+              document.write(localStorage.getItem("luxTot"));
+
+            </script>
+          </div>
+
+          <div class="text-data"> Misc Total:
+            <script>
+              document.write(localStorage.getItem("mscTot"));
+
+            </script>
+          </div>
+
+          <div class="text-data"> Essentials Total:
+            <script>
+              document.write(localStorage.getItem("essentTot"));
+
+            </script>
+          </div>
+		</a>
+
+
+        </div>
+        <div class="column">
+          <canvas id="pie-chart" width="800" height="550"></canvas>
+          <script>
+            new Chart(document.getElementById("pie-chart"), {
+              type: 'pie',
+              data: {
+                labels: ["Bills", "Groceries", "Entertainment", "Gas", "Gaming", "Luxury", "Misc", "Essentials"],
+                datasets: [{
+                  label: "Split Expenses",
+                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850", "#FFEA88", "#2d38ff", "#ff9013"],
+                  data: [parseFloat(localStorage.getItem("billsTot")), parseFloat(localStorage.getItem("grocTot")), parseFloat(localStorage.getItem("enterTot")), parseFloat(localStorage.getItem("gasTot")), parseFloat(localStorage.getItem("gamingTot")), parseFloat(localStorage.getItem("luxTot")), parseFloat(localStorage.getItem("mscTot")), parseFloat(localStorage.getItem("essentTot"))]
+                }]
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: 'Expenses (US Dollars)'
+                }
+              }
+            });
+
+          </script>
+
+        </div>
+      </div>
+
+    </div>
+
+
     <!--<canvas id="countries" width="100%" height="100%"></canvas>
     <script>
       var pieData = [
@@ -128,28 +179,7 @@
 
     </script> -->
 
-    <canvas id="pie-chart" width="800" height="300"></canvas>
-    <script>
-    new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-    labels: ["Bills", "Groceries", "Entertainment", "Gas", "gaming","luxury","misc","essentials"],
-    datasets: [{
-    label: "Split Expenses",
-    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#FFEA88","#2d38ff","#ff9013"],
-    data: [parseFloat(localStorage.getItem("billsTot")),parseFloat(localStorage.getItem("grocTot")),parseFloat(localStorage.getItem("enterTot")),parseFloat(localStorage.getItem("gasTot")),parseFloat(localStorage.getItem("gamingTot")),parseFloat(localStorage.getItem("luxTot")), parseFloat(localStorage.getItem("mscTot")),parseFloat(localStorage.getItem("essentTot"))]
-    }]
-    },
-    options: {
-    title: {
-    display: true,
-    text: 'Expenses(Dollars)'
-    }
-    }
-    });
-    </script>
-
-   <!-- <div id="container" style="width: 100%; height: 100%"></div>
+    <!-- <div id="container" style="width: 100%; height: 100%"></div>
     <script>
       anychart.onDocumentReady(function() {
 
@@ -189,7 +219,7 @@
 -->
 
 
-  </div>
+    </div>
 
   </body>
 

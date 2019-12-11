@@ -23,14 +23,14 @@
 }
 
 .button-bg {
-  background-image: linear-gradient(to bottom right, blue, red 120%);
+  background-image: linear-gradient(to bottom right, #636060, #9c9898 80%);
   color: black;
   margin-right: 50px;
 }
 
 .button-bg2 {
   color: black;
-  background-image: linear-gradient(to bottom left, blue, red 120%);
+  background-image: linear-gradient(to bottom left, #636060, #9c9898 80%);
   margin-left: 50px;
 }
 
@@ -80,7 +80,7 @@ h1 {
 
 h2 {
 
-  font-size: 2.5em;
+  font-size: 2.0em;
 
   padding-left: 50px;
   padding-right: 50px;
@@ -95,7 +95,7 @@ h2 {
 h3 {
 
   font-size: 2.0em;
-  padding-top: 50px;
+
   padding-left: 50px;
   padding-right: 50px;
 
@@ -128,7 +128,7 @@ p{
 }
 
 .column{
-  background-color: #dadde3;
+  background-color: #c1c6c9;
 }
 
 .input{
@@ -141,5 +141,43 @@ p{
   font-size:. 1.75em;
   font-family: Arial;
   color: black;
+
+}
+
+.text-data{
+
+  padding-top: 30px;
+
+  margin-left: 350px;
+  text-align: left;
+  font-size: 2.65em;
+  -webkit-text-fill-color: red;
+  -webkit-text-stroke-width: 2.5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+  
+.grand-text-data{
+ 
+  margin-top: 50px;
+  margin-bottom: 15px;
+  text-decoration: underline overline;
+  text-decoration-style: double;
+  padding-top: 10px;
+
+  margin-left: 350px;
+  text-align: left;
+  font-size: 3.5em;
+  -webkit-text-fill-color: #f7190a;
+  -webkit-text-stroke-width: 2.5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+.ui.segment{
+
+margin-top:50px;
+background-color: white;
 
 }
