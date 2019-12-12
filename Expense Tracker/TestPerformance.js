@@ -1,17 +1,16 @@
 /* eslint-env mocha, chai */
-/*  global maxPrimeSum, chai */
+/*  global totalExpense, chai */
 
 describe('Test For Performance', function () {
-  describe('maxPrimeSum', function () {
-    it('maxPrimeSum(10000) should take less than 20ms', function () {
-      this.timeout(20);
+  describe('Total Expense', function () {
+    it('Creating, adding and totaling 200 expenses', function () {
+      this.timeout(10);
       this.slow(0);
-      chai.expect(maxPrimeSum(10000)).to.deep.equal([9521, 65]);
-    });
-    it('maxPrimeSum(100000) should take less than 200ms', function () {
-      this.timeout(200);
-      this.slow(0);
-      chai.expect(maxPrimeSum(100000)).to.deep.equal([92951, 183]);
+      let ll = new LinkedList();
+      for(let i = 0; i < 200; i++){
+        ll.addToList(new Expense(100,"Msc"));
+      }
+      chai.expect(totalExpense(ll)).to.deep.equal(20000);
     });
   });
 });
