@@ -10,4 +10,4 @@ and how they can better manage their spending.
 
 
 Current Status:
-Design Phase
+Complete
